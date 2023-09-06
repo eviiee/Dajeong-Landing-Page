@@ -104,6 +104,10 @@ h4 {
   text-align: left;
 }
 
+.wc {
+  color: white;
+}
+
 p {
   font-size: 23px;
   line-height: 1.5;
@@ -234,6 +238,9 @@ section.first > div > img {
 section.grey {
   background-color: #f9fafb;
 }
+section.dark {
+  background-color: #333;
+}
 section.question {
   padding-bottom: 220px;
 }
@@ -352,10 +359,20 @@ div.team > div > img {
   overflow: hidden;
   transform: translateY(10px);
   transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  line-height: 1.5;
+  line-height: 1;
+  --width: 35px;
+  text-align: center;
+  font-size: inherit;
+}
+.slideappear.big {
+  --width: 60px;
+}
+.slideappear.big > img {
+  width: 50px;
+  height: 50px;
 }
 .slideappear.animate {
-  width: 35px;
+  width: var(--width);
 }
 
 .emphasis {
@@ -396,6 +413,7 @@ div.team > div > img {
 .underline {
   display: inline-block;
   position: relative;
+  --accentColor: rgb(255, 83, 83);
 }
 .underline > svg {
   z-index: 0;
@@ -408,6 +426,7 @@ div.team > div > img {
   transition-duration: inherit;
 }
 .underline > svg > path {
+  stroke: var(--accentColor);
   transition-delay: calc(var(--index) * 0.75s);
   stroke-dasharray: 380;
   stroke-dashoffset: 380;
@@ -420,13 +439,50 @@ div.team > div > img {
   transition: 0.3s ease-in-out;
 }
 .underline.animate > span {
-  color: #FF5353;
+  color: var(--accentColor);
   font-weight: 700;
+  transition-delay: var(--delay);
 }
 .underline.animate > svg > path {
   stroke-dashoffset: 0;
 }
 
-.animate {
+.highlight {
+  display: inline-block;
+  position: relative;
+  --accentColor: rgb(255, 83, 83);
+}
+.highlight > svg {
+  z-index: 0;
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  overflow: visible;
+}
+.highlight > svg > path {
+  stroke: var(--accentColor);
+  stroke-width: 20px;
+  stroke-dasharray: 560;
+  stroke-dashoffset: 560;
+}
+.highlight > span {
+  position: inherit;
+  z-index: 1;
+}
+.highlight.animate {
+  --index: 0.5;
+}
+.highlight.animate > span {
+  color: black;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+}
+.highlight.animate > svg > path {
+  stroke-dashoffset: 0;
+  transition: 0.55s ease-in-out;
+  transition-delay: calc(var(--index) * 0.75s);
+}
+
+.animate, .animate * {
   transition-delay: calc(var(--index) * 0.75s);
 }/*# sourceMappingURL=styles.css.map */

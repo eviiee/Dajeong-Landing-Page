@@ -121,6 +121,10 @@ h4 {
     text-align: left;
 }
 
+.wc {
+    color: white;
+}
+
 p {
     font-size: 23px;
     line-height: 1.5;
@@ -269,6 +273,10 @@ section {
 
     &.grey {
         background-color: $shade;
+    }
+
+    &.dark {
+        background-color: $darkgrey;
     }
 
     &.question {
@@ -432,10 +440,24 @@ div.team {
 
     transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    line-height: 1.5;
+    line-height: 1;
+
+    --width : 35px;
+
+    text-align: center;
+
+    font-size: inherit;
+
+    &.big {
+        --width: 60px;
+        > img {
+            width: 50px;
+            height: 50px;
+        }
+    }
 
     &.animate {
-        width: 35px;
+        width: var(--width);
     }
 }
 
@@ -514,6 +536,8 @@ div.team {
     display: inline-block;
     position: relative;
 
+    --accentColor: rgb(255, 83, 83);
+
     > svg {
 
         z-index: 0;
@@ -529,6 +553,7 @@ div.team {
         transition-duration: inherit;
 
         > path {
+            stroke: var(--accentColor);
             transition-delay: calc(var(--index) * 0.75s);
             stroke-dasharray: 380;
             stroke-dashoffset: 380;
@@ -545,8 +570,9 @@ div.team {
 
     &.animate {
         > span {
-            color: $primary;
+            color: var(--accentColor);
             font-weight: 700;
+            transition-delay: var(--delay);
         }
         > svg {
             > path {
@@ -556,6 +582,54 @@ div.team {
     }
 }
 
-.animate {
+.highlight {
+    display: inline-block;
+    position: relative;
+
+    --accentColor: rgb(255, 83, 83);
+
+    > svg {
+        z-index: 0;
+
+        position: absolute;
+        left: -15px;
+        top: -15px;
+
+        overflow: visible;
+
+        > path {
+            stroke: var(--accentColor);
+            stroke-width: 20px;
+            stroke-dasharray: 560;
+            stroke-dashoffset: 560;
+        }
+    }
+
+    > span {
+        position: inherit;
+        z-index: 1;
+    }
+
+    &.animate {
+
+        --index: 0.5;
+
+        > span {
+            color: black;
+            font-weight: 700;
+            transition: 0.3s ease-in-out;
+        }
+
+        > svg {
+            > path {
+                stroke-dashoffset: 0;
+                transition: 0.55s ease-in-out;
+                transition-delay:  calc(var(--index) * 0.75s);
+            }
+        }
+    }
+}
+
+.animate, .animate * {
     transition-delay: calc(var(--index) * 0.75s);
 }
