@@ -227,13 +227,24 @@ section.first {
   padding-bottom: 30px;
   min-height: 700px;
   height: calc(100vh - 60px);
-  background-image: url("https://www.creativeboom.com/uploads/articles/ea/ea13a70f0965fec2a05cb8cdaebe419cc3f9fd1f_1620.jpg");
+  background-image: url("https://images.ui8.net/uploads/008_1555747345318.jpg");
   background-position: center;
   background-size: cover;
+  position: relative;
 }
 section.first > div > img {
   width: 40px;
   height: 40px;
+}
+section.first::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(8, 10, 23, 0), rgba(8, 10, 23, 0.8));
+  opacity: 0.2;
 }
 section.grey {
   background-color: #f9fafb;
@@ -361,15 +372,21 @@ div.team > div > img {
   transition: 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   line-height: 1;
   --width: 35px;
+  --size: 30px;
   text-align: center;
   font-size: inherit;
 }
+.slideappear > img {
+  width: var(--size);
+  height: var(--size);
+}
 .slideappear.big {
   --width: 60px;
+  --size: 50px;
 }
 .slideappear.big > img {
-  width: 50px;
-  height: 50px;
+  width: var(--size);
+  height: var(--size);
 }
 .slideappear.animate {
   width: var(--width);
