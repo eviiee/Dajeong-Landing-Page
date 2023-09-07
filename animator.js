@@ -46,10 +46,10 @@ document.querySelectorAll('.highlight').forEach(element => {
     element.prepend(highlight);
 });
 
-const texts = document.querySelectorAll('h2, h3, h4, p');
-for (let text of texts) {
-    text.classList.add('fadeup');
-}
+// const texts = document.querySelectorAll('h2, h3, h4, p');
+// for (let text of texts) {
+//     text.classList.add('fadeup');
+// }
 
 const observer100 = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -73,7 +73,7 @@ const removerObserver = new IntersectionObserver(entries => {
             entry.target.classList.remove('animate');
         }
     });
-});
+}, {rootMargin: '500px'});
 
 
 

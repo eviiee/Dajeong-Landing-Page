@@ -317,6 +317,28 @@ div.team > div > img {
   margin-bottom: 20px;
 }
 
+div.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+div.grid > .gridItem {
+  --row:1;
+  --col:1;
+  grid-column: span var(--col);
+  grid-row: span var(--row);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+div.colored {
+  --bg: #40b81b;
+  background-color: var(--bg);
+}
+div.colored.dark h1, div.colored.dark h2, div.colored.dark h3, div.colored.dark p {
+  color: white;
+}
+
 @media screen and (max-width: 991px) {
   nav {
     background-color: white;

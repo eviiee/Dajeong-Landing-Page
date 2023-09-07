@@ -380,6 +380,32 @@ div.team {
     }
 }
 
+div.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    > .gridItem {
+        --row:1;
+        --col:1;
+
+        grid-column: span var(--col);
+        grid-row: span var(--row);
+
+        border-radius: 20px;
+        padding: 30px;
+    }
+}
+
+div.colored {
+    --bg: #40b81b;
+    background-color: var(--bg);
+    &.dark {
+        h1, h2, h3, p {
+            color: white;
+        }
+    }
+}
+
 // Tablet
 @media screen and (max-width: 991px) {
     nav {
